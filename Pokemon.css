@@ -1,0 +1,50 @@
+#wrapper{
+	width: 900px;
+}
+
+#pictures{
+	display: inline-block;
+	width: 500px;
+}
+body{
+	display: inline-block; 
+	width: 600px;
+}
+#top{
+	width: 500px;
+	display: inline-block;
+}
+#side_bar{
+	display: inline-block;
+	background-color: red;
+	width: 200px;
+	margin: 0px;
+	vertical-align: top;
+	padding: 25px;
+}
+#pokedeck{
+	width: 200px;
+	height: 500px;
+	background-color: white;
+	vertical-align: top;
+	display: inline-block;
+}
+#side_bar h4, ul, li {
+	margin-left: 10px;
+	padding: 0px;
+	width: 150px;
+	display: inline-block;
+}
+#name{
+	margin: 0px;
+	text-align: center;
+	font-size: 25px;
+	font-variant-caps: small-caps;
+}
+#side_bar ul{
+	margin-top: 0px;
+}
+#pokedeck img{
+	width: 100%;
+	display: inline-block;
+}

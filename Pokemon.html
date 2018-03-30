@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>Pokemon</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="Pokemon.css">
+	<script type="text/javascript">
+
+		var $name = "";
+		var $height ="";
+		var $weight = "";
+		var $types = [];
+
+		$(document).ready(function(){
+			for (var i = 1; i <= 151; i++) {
+				$('#pictures').append("<img src= 'https://pokeapi.co/media/img/" + i + ".png' id= " + i + ">") //creates id with a # in order for each picture
+			 }
+		});
+		$(document).on('click', 'img' ,function(){
+			var count = $(this).attr('id');
+			$.get("https://pokeapi.co/api/v2/pokemon/"+count+"/", function(res) {
+            $weight = res.weight;
+            $height = res.height;
+            $name = res.name;
+            for (var i = 0; i < res.types.length; i++){
+            	 $types[i] = res.types[i].type.name;
+            }
+			var html_string = "";
+            html_string += "<h4 id='title'>Name:</h4><br><h4 id='name'>" + $name + "</h4><h4>Height:</h4>" + $height +"<h4>Weight:</h4>" + $weight+ "<h4>Types:</h4><ul>";
+        	for (var k = 0; k < $types.length; k++) {
+                html_string += "<li> -->    " + $types[k] + "</li>";
+            }
+            html_string += "</ul>";
+      		$('#pokedeck').html("<img src= 'https://pokeapi.co/media/img/" + count + ".png'" + html_string);
+
+            }, "json");
+        })
+
+	</script>
+	</head>
+	<body>
+		<div id="wrapper">
+			<div id="top">
+				<div id="pictures">
+				</div>
+			</div>
+			<div id="side_bar">
+    			<div id='pokedeck'>
+    			</div>
+        	</div>
+   	 	</div>
+	</body>
+</html>
